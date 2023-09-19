@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<p>
+{% if request.user.is_authenticated %}
+<h1>
     {{content}}
-</p>
+</h1>
 
+
+{% for user in all_users %}
+{% if user != request.user %}
+<p>
+    <a href="/messages/{{user.id}}"> {{ user }} </a>
+
+
+</p>
+{% endif %}
+{% endfor %}
+
+{% else %}
+<h1>Please login or registrate!</h1>
+{% endif %}
 {% endblock %}

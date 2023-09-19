@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{message_form.as_p}}
+
+    <input type="submit" value="send">
+</form>
+{% for message in chat %}
+<h4>{{message.sender}}</h4>
+<p>{{message.message}}</p>
+{% endfor %}
+
+{% endblock %}

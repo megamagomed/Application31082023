@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+    {{ content.user }}
+</h1>
+<p>
+    {{ content.user.email }}
+</p>
+<p>
+    {{content.name}}
+
+</p>
+<p>
+    {{content.about_yourself}}
+</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Edit">
+
+</form>
+
+
+
+{% endblock %}
